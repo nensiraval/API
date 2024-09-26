@@ -35,7 +35,9 @@ public class MyAdapter extends RecyclerView.Adapter<Myrecycle>
     public void onBindViewHolder(@NonNull Myrecycle holder, int position) {
         Log.d("=====", "onBindViewHolder: "+position);
         ModelClass model = allData.get(position);
-        holder.txt.setText(model.getTittle());
+        holder.txtittle.setText(model.getTittle());
+        holder.txtprice.setText("₹"+String.valueOf(model.getPrice())+"  "+String.valueOf(model.getDiscountPercentage()));
+        holder.txtrating.setText(String.valueOf(model.getRating())+" ★ ");
     }
 
     @Override
@@ -45,9 +47,13 @@ public class MyAdapter extends RecyclerView.Adapter<Myrecycle>
 }
 class Myrecycle extends RecyclerView.ViewHolder{
 
-    TextView txt;
-    public Myrecycle(@NonNull View itemView) {
+    TextView txtittle,txtprice,txtrating;
+    public Myrecycle(@NonNull View itemView)
+    {
         super(itemView);
-         txt = itemView.findViewById(R.id.txt);
+        txtittle = itemView.findViewById(R.id.txtittle);
+        txtprice = itemView.findViewById(R.id.txtprice);
+        txtrating = itemView.findViewById(R.id.txtrating);
+
     }
 }

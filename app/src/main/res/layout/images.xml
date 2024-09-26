@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <androidx.cardview.widget.CardView
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/cosmetic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:id="@+id/txtittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:elevation="10dp"
-            android:layout_margin="5dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:gravity="start"
+            android:layout_marginStart="3dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="#000"
+            android:textSize="13dp"/>
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:background="@drawable/cosmetic"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp" />
+        <TextView
+            android:id="@+id/txtprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginStart="3dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="15dp"/>
 
-                <TextView
-                    android:id="@+id/txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="155dp"
-                    android:gravity="center"
-                    android:textColor="#000"
-                    android:textSize="23dp" />
 
-        </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtrating"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ratting"
+            android:gravity="center"
+            android:layout_marginStart="3dp"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:textSize="15dp"/>
+</LinearLayout>
