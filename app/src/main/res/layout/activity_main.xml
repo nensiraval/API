@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/black"
     android:background="#D5D0D0"
     tools:context=".MainActivity">
 
-    <GridView
-        android:id="@+id/grid"
+<!--    <GridView-->
+<!--        android:id="@+id/grid"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:horizontalSpacing="5dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:numColumns="2"-->
+<!--        android:verticalSpacing="5dp"/>-->
+
+<!--    jyare size vgr na image hoi tyare apde reyclerview add kri devano jenathi te data teni rite set thai jay-->
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:horizontalSpacing="5dp"
-        android:layout_marginTop="10dp"
-        android:numColumns="2"
-        android:verticalSpacing="5dp"/>
-
+        android:id="@+id/recycle"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"/>
 </LinearLayout>
