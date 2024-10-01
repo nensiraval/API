@@ -10,7 +10,6 @@
             android:id="@+id/image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/cosmetic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_margin="5dp"/>
@@ -25,15 +24,38 @@
             android:textColor="#000"
             android:textSize="13dp"/>
 
-        <TextView
-            android:id="@+id/txtprice"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:layout_marginStart="3dp"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:textSize="15dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="5sp"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:layout_marginStart="3dp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:textSize="15dp"/>
+
+
+                <TextView
+                    android:id="@+id/txtrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/txtdis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+        </LinearLayout>
 
 
         <TextView

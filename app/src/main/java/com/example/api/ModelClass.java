@@ -1,9 +1,11 @@
 package com.example.api;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ModelClass {
+//Serializable
+public class ModelClass implements Serializable {
     Integer id;
     String tittle;
     String description; String category;

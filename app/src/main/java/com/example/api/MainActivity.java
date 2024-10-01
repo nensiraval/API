@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +33,8 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     //GridView grid;
-
     RecyclerView recycle;
+
     ArrayList<ModelClass> allData = new ArrayList<>();
 
     @Override
@@ -75,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                         JSONArray jsonReview = singleProduct.getJSONArray("reviews");
                         ArrayList<HashMap<String, Object>> reviews = new ArrayList<>();
 
-                        for (int k = 0; k < jsonReview.length(); k++) {
+                        for (int k = 0; k < jsonReview.length(); k++)
+                        {
                             JSONObject reviewMap = jsonReview.getJSONObject(k);
 
                             HashMap<String, Object> hash = new HashMap<>();
@@ -86,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                             hash.put("reviewerEmail", reviewMap.getString("reviewerEmail"));
                             reviews.add(hash);
                         }
-
                         JSONArray jsoImages = singleProduct.getJSONArray("images");
 
                         ArrayList<String> images = new ArrayList<>();
@@ -111,10 +112,11 @@ public class MainActivity extends AppCompatActivity {
 
                 MyAdapter adapter = new MyAdapter(allData, MainActivity.this);
                 recycle.setAdapter(adapter);
-//                Myclass db = new Myclass(allData, MainActivity.this);
+
+
+//                 Myclass db = new Myclass(allData, MainActivity.this);
 //                grid.setAdapter(db);
                // Log.d("==r==", "tags : " + Arrays.toString(allData.get(0).getTags()));
-
             }
         }, new Response.ErrorListener() {
             @Override

@@ -38,4 +38,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation(libs.volley)
+    implementation ("com.github.bumptech.glide:glide:4.16.0");
 }
