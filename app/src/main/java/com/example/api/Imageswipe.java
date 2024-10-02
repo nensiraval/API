@@ -17,7 +17,9 @@ import java.util.ArrayList;
 public class Imageswipe extends AppCompatActivity {
 
     ViewPager vpager;
-    TextView next,back;
+
+    TextView[] textViews;
+    TextView next,back,detittle,deprice,derate,dedis,derating,details;
     int p = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,71 +28,88 @@ public class Imageswipe extends AppCompatActivity {
         vpager = findViewById(R.id.vpager);
         next = findViewById(R.id.next);
         back = findViewById(R.id.back);
+        detittle = findViewById(R.id.detittle);
+        deprice = findViewById(R.id.deprice);
+        derate = findViewById(R.id.derate);
+        dedis = findViewById(R.id.dedis);
+        derating = findViewById(R.id.derating);
+        details = findViewById(R.id.details);
 
         ModelClass all = (ModelClass)getIntent().getSerializableExtra("Data");
-        int a = getIntent().getIntExtra("Int",0);
 
-        all.getThumbnail();
+
+//        textViews = new TextView[] {
+//                findViewById(R.id.detittle),
+//                findViewById(R.id.deprice),
+//                findViewById(R.id.dedis),
+//                findViewById(R.id.derate),
+//                findViewById(R.id.derating),
+//                findViewById(R.id.details)
+//        };
+//        String[] values = new String[] {
+//                all.getTittle(),
+//                "₹" + String.valueOf(all.getPrice()),
+//                " " + String.valueOf(all.getDiscountPercentage() + "%off"),
+//                String.valueOf(" " + (int) (all.getPrice() * (100 - all.getDiscountPercentage()) / 100)),
+//                String.valueOf(all.getRating() + " ★ "),
+//                all.getDescription()
+//        };
+//
+//        for (int i = 0; i < textViews.length; i++) {
+//            textViews[i].setText(values[i]);
+//        }
+//
+        String Tittle = all.getTittle();
+        detittle.setText(Tittle);
+
+        String Price = ("₹"+String.valueOf(all.getPrice()));
+        deprice.setText(Price);
+
+        String Discount = (" "+String.valueOf(all.getDiscountPercentage()+ "%off"));
+        dedis.setText(Discount);
+
+        int k = (int) (100 - all.getDiscountPercentage());
+        int t = (int) (all.getPrice()*100);
+
+        String Rate = (String.valueOf(" "+t/k));
+        derate.setText(Rate);
+
+        String Rating = String.valueOf(all.getRating()+" ★ ");
+        derating.setText(Rating);
+
+        String Detail = all.getDescription();
+        details.setText(Detail);
+
+
+
+        int a = getIntent().getIntExtra("Int",0);
         MyPage pg = new MyPage(this, all.images);
         vpager.setAdapter(pg);
         vpager.setCurrentItem(a);
         p = vpager.getCurrentItem();
 
-//        vpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//            @Override
-//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//            }
-//
-//            @Override
-//            public void onPageSelected(int position) {
-//                p = position;
-//            }
-//
-//            @Override
-//            public void onPageScrollStateChanged(int state) {
-//
-//            }
-//        });
-//
-//        next.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (p < pg.getCount() - 1) {
-//                    p++;
-//                    vpager.setCurrentItem(p);
-//                }
-//            }
-//        });
-//
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (p > 0) {
-//                    p--;
-//                    vpager.setCurrentItem(p);
-//                }
-//            }
-//        });
 
-//        next.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                p++;
-//                vpager.setCurrentItem(p);
-//            }
-//        });
-//
-//        back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                p--;
-//                vpager.setCurrentItem(p);
-//            }
-//        });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (p < all.images.size()) {
+                    p++;
+                    vpager.setCurrentItem(p);
+                } else {
+                    Log.d("====", "Next : " + p);
+                }
+            }
+        });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (p > 0) {
+                    p--;
+                    vpager.setCurrentItem(p);
+                }
+                Log.d("====", "Back : " + p);
+            }
+        });
     }
 }

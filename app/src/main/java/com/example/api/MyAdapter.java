@@ -1,5 +1,6 @@
 package com.example.api;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<Myrecycle>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myrecycle holder, int position) {
+    public void onBindViewHolder(@NonNull Myrecycle holder, @SuppressLint("RecyclerView") int position) {
         Log.d("=====", "onBindViewHolder: "+position);
 
         ModelClass model = allData.get(position);
@@ -48,7 +49,8 @@ public class MyAdapter extends RecyclerView.Adapter<Myrecycle>
         int k = (int) (100 - model.getDiscountPercentage());
         int t = (int) (model.getPrice()*100);
 
-        holder.image.setOnClickListener(new View.OnClickListener() {
+        holder.image.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 mainActivity.startActivity(new Intent(mainActivity, Imageswipe.class).
@@ -82,7 +84,5 @@ class Myrecycle extends RecyclerView.ViewHolder
         image = itemView.findViewById(R.id.image);
         txtrate = itemView.findViewById(R.id.txtrate);
         txtdis = itemView.findViewById(R.id.txtdis);
-
-
     }
 }

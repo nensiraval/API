@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//Serializable
+//Serializable : jyare akho model class lavvano hoi tyare serializable no use thay..
 public class ModelClass implements Serializable {
     Integer id;
     String tittle;

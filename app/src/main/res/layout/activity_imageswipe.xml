@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="#ffffff"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -41,7 +41,7 @@
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<-"
+            android:text="back"
             android:layout_marginStart="100dp"
             android:textSize="12dp"
             android:textColor="@color/black"/>
@@ -50,7 +50,7 @@
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="->"
+            android:text="next"
             android:layout_marginStart="200dp"
             android:textSize="12dp"
             android:textColor="@color/black"/>
@@ -62,20 +62,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="8dp"
         android:fontFamily="sans-serif-condensed-light"
         android:textColor="#000"
-        android:textSize="13dp"/>
+        android:textSize="18dp"/>
 
-    <TextView
-        android:id="@+id/deprice"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:layout_marginStart="3dp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:textSize="15dp"/>
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="5sp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/deprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="25dp"/>
+
+
+        <TextView
+            android:id="@+id/derate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/dedis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
+    </LinearLayout>
 
 
     <TextView
