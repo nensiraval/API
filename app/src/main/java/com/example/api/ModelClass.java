@@ -8,7 +8,8 @@ import java.util.HashMap;
 public class ModelClass implements Serializable {
     Integer id;
     String tittle;
-    String description; String category;
+    String description;
+    String category;
     double price;
     double discountPercentage;
     double rating;
