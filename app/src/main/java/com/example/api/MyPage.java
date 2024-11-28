@@ -23,10 +23,10 @@ public class MyPage extends PagerAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return all.size();
     }
-
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
         return view == object;
