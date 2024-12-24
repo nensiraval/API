@@ -32,7 +32,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    //GridView grid;
     RecyclerView recycle;
 
     ArrayList<ModelClass> allData = new ArrayList<>();
@@ -71,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
                             tags[t] = jsonTags.getString(t);
                         }
 
-//                        String brand = singleProduct.getString("brand");
 
                         JSONArray jsonReview = singleProduct.getJSONArray("reviews");
                         ArrayList<HashMap<String, Object>> reviews = new ArrayList<>();
@@ -113,10 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 MyAdapter adapter = new MyAdapter(allData, MainActivity.this);
                 recycle.setAdapter(adapter);
 
-
-//                 Myclass db = new Myclass(allData, MainActivity.this);
-//                grid.setAdapter(db);
-               // Log.d("==r==", "tags : " + Arrays.toString(allData.get(0).getTags()));
             }
         }, new Response.ErrorListener() {
             @Override
@@ -124,13 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("--er--", "onErrorResponse: " + error.getLocalizedMessage());
             }
         });
-        //main point
         que.add(rs);
-
-        //3st step
-        //RequestQueue ==> 1st
-        //StringRequest ==> 2nd
-        //RequestQueue no object que.add ("String no object");
 
     }
 }
